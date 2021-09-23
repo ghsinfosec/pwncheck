@@ -1,6 +1,6 @@
 # pwncheck
 ### Breached password checker
-pwncheck is a tool that you will check the status of any passwords you have or plan to use. It leverages the [HaveIBeenPwned](https://haveibeenpwned.com) pwndpasswords api to check the SHA1 hash of a provided password.
+pwncheck is a tool that will check the status of any passwords you have or plan to use. It leverages the [HaveIBeenPwned](https://haveibeenpwned.com) pwndpasswords api to check the SHA1 hash of a provided password.
 
 If pwncheck discovers the submitted password in the pwnedpasswords list, it will display a red text letting you know how many times that password was seen in data breaches. Otherwise it will display a green text letting you know that the password you entered has not been breached.....yet...
 
