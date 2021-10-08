@@ -39,6 +39,7 @@ def pwncheck(password):
     # get the sha1 hash of submitted pw
     sha1 = hashlib.sha1(password.encode('utf-8'))
     pw_hash = sha1.hexdigest().upper()  # convert to upper case
+    print(f'SHA1 Hash of entered password: {pw_hash}')
     prefix = pw_hash[0:5]               # necessary for the api, ref above
 
     url = f'https://api.pwnedpasswords.com/range/{prefix}'
@@ -55,12 +56,12 @@ def pwncheck(password):
     for k,v in hash_data.items():
         # match found, pw is compromised
         if k == pw_hash:
-            print(f'{red} [!!] The password you entered has been seen {v} times in data breaches! Do NOT use this password! [!!]')
+            print(f'{red} [!!] Password seen {v} times in data breaches! Do NOT use this password! [!!]')
             break
 
     # no match found, pw is good for now
     if pw_hash != k:
-        print(f'{green} The password you entered has not been found in any data breach and is safe to use!')
+        print(f'{green} The password you entered has not been found in any data breach!')
     
 
 pwncheck(password)
