@@ -7,7 +7,6 @@ from getpass import getpass
 import hashlib
 import requests
 import subprocess
-import sys
 from time import sleep
 
 
@@ -40,7 +39,7 @@ def pwncheck(password):
     sha1 = hashlib.sha1(password.encode('utf-8'))
     pw_hash = sha1.hexdigest().upper()  # convert to upper case
     print(f'\nSHA1 Hash of entered password: {pw_hash}\n')
-    prefix = pw_hash[0:5]               # necessary for the api, ref above
+    prefix = pw_hash[:5]               # necessary for the api, ref above
 
     url = f'https://api.pwnedpasswords.com/range/{prefix}'
 
